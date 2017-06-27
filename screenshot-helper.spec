@@ -6,7 +6,7 @@ Release:	1%{?dist}
 Summary:	Save screenshots in a chosen domain instead of Dom0
 
 License:	ISC
-URL:		https://github.com/jpouellet/qubes-screenshot-helper-xfce4
+URL:		https://github.com/jpouellet/qubes-screenshot-helper
 
 Requires:	qubes-core-dom0
 Requires:	qubes-core-dom0-linux
