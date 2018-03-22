@@ -3,7 +3,7 @@
 vm=$(
 	{ qvm-ls --raw-data state name-raw || # r3.2
 	  qvm-ls --raw-data --fields STATE,NAME # r4
-	} | grep '^Running|' | cut -d'|' -f2 | grep -v dom0 \
+	} | grep '^Running|' | cut -d'|' -f2 | grep -v dom0 | sort \
 	| zenity --list --title 'Choose destination VM' --column 'VM Name' \
 	2>/dev/null
 )
