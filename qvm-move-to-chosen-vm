@@ -1,5 +1,12 @@
 #!/bin/sh
-vm=$(qvm-ls --raw-data state name-raw | grep '^Running|' | cut -d'|' -f2 | grep -v dom0 | zenity --list --title 'Choose destination VM' --column 'VM Name' 2>/dev/null)
+
+vm=$(
+	qvm-ls --raw-data state name-raw \
+	| grep '^Running|' | cut -d'|' -f2 | grep -v dom0 \
+	| zenity --list --title 'Choose destination VM' --column 'VM Name' \
+	2>/dev/null
+)
+
 if [ -n "$vm" ]; then
 	qvm-move-to-vm "$vm" "$@"
 	qvm-run -p "$vm" 'xdg-open /home/user/QubesIncoming/dom0' </dev/null
